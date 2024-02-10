@@ -24,16 +24,20 @@ function App() {
         <input
           id='name'
           type="text"
-          {...register("name")}
+          {...register("name", { required: "名前は必須です。" })}
         />
+        <p>{errors.name?.message as React.ReactNode}</p>
         <label htmlFor="メールアドレス">メールアドレス</label>
         <input id='email'
           type="email"
-          {...register("email")} />
+          {...register("email", { required: "email は必須です。" })} />
+        <p>{errors.email?.message as React.ReactNode}</p>
         <label htmlFor="パスワード">パスワード</label>
         <input id='password'
           type="password"
-          {...register("password")} />
+
+          {...register("password", { required: "password は必須です。" })} />
+        <p>{errors.password?.message as React.ReactNode}</p>
         <button type='submit'>送信</button>
       </form>
     </div>
